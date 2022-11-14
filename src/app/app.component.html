@@ -22,7 +22,37 @@
         <h2>Data/Hora</h2>
         <div>{{ this.getCurrentPrice().time.updated }}</div>
         <h2>Taxas</h2>
-        <h3>{{ this.getCurrentPrice().bpi.USD.description }}</h3>
+        <p class="description">
+          <strong>{{ this.getCurrentPrice().bpi.USD.description }}</strong>
+        </p>
+        <p>
+          <strong>
+            <span>{{ this.getCurrentPrice().bpi.USD.symbol }}</span>
+            {{ this.getCurrentPrice().bpi.USD.rate }}
+          </strong>
+        </p>
+        <p class="description">
+          <strong>{{ this.getCurrentPrice().bpi.BRL.description }}</strong>
+        </p>
+        <p>
+          <strong>
+            <span>{{ this.getCurrentPrice().bpi.USD.symbol }}</span>
+            {{ this.getCurrentPrice().bpi.BRL.rate }}
+          </strong>
+        </p>
+        <table class="table table-bordered" border="1">
+          <tr>
+            <th>Data/hora</th>
+            <th>USD</th>
+            <th>BRL</th>
+          </tr>
+          <tr *ngFor="let price of this.bitcoinService.updateList">
+            <td>{{ price.timestamp | date: 'full' }}</td>
+            <td>{{ price.USD | currency }}</td>
+            <td>{{ price.BRL | currency }}</td>
+          </tr>
+        </table>
+        <hr />
       </div>
     </div>
   </div>
