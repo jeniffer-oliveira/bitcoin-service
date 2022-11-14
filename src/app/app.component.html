@@ -1,4 +1,29 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div>
+  <div class="myData">
+    <h2>Meus dados</h2>
+    <p>Name: {{ myName }}</p>
+    <p>RA: {{ RA }}</p>
+    <hr />
+    <div *ngIf="getCurrentPrice()">
+      <hello name="{{ name }}"></hello>
+      <div>
+        <input
+          class="button"
+          type="button"
+          value="Atualizar"
+          (click)="update()"
+        />
+        <br />
+        <span
+          >Atualizado em
+          {{ this.bitcoinService.lastUpdate | date: 'full' }}</span
+        >
+        <hr />
+        <h2>Data/Hora</h2>
+        <div>{{ this.getCurrentPrice().time.updated }}</div>
+        <h2>Taxas</h2>
+        <h3>{{ tis.getCurrentPrice().bpi.USD.description }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
