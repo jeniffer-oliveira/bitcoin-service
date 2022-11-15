@@ -1,11 +1,18 @@
 <div>
   <div class="myData">
-    <h2>Meus dados</h2>
-    <p>Name: {{ myName }}</p>
-    <p>RA: {{ RA }}</p>
+    <header>
+      <h2>Meus dados</h2>
+      <p>Name: {{ myName }}</p>
+      <p>RA: {{ RA }}</p>
+    </header>
     <hr />
     <div *ngIf="getCurrentPrice()">
       <hello name="{{ name }}"></hello>
+      <div>
+        <p>
+          <strong>Timer do serviço: {{ counter }}s</strong>
+        </p>
+      </div>
       <div>
         <input
           class="button"

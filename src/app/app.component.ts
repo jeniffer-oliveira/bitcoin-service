@@ -7,6 +7,13 @@ import { BitcoinService } from './bitcoin.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  counter = 0;
+  timer() {
+    this.counter = setInterval(() => {
+      this.counter++;
+    }, 1000);
+  }
+
   name = 'BitCoin';
 
   myName: string = 'Jeniffer Campos de Oliveira';
